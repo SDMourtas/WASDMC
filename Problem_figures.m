@@ -36,7 +36,13 @@ set(Bar(2),'FaceColor',[0.4660 0.6740 0.1880]) ;
 box on
 ylabel('Training Set Samples')
 xlabel('ISCO-08 Classification Results')
-xticklabels({'WASDMC','FTree','FKNN','EBT','NNN'})
+row1 = {'WASD','WASD','FTree','FKNN','EBT','NNN'};
+row2 = {'MC','MC-PAF','','','',''};
+labelArray = [row1; row2]; 
+tickLabels = strtrim(sprintf('%s\\newline%s\n', labelArray{:}));
+ax = gca(); 
+ax.XTick = 1:6; 
+ax.XTickLabel = tickLabels; 
 legend('Correct Classifications','Incorrect Classifications')
 
 figure
@@ -62,5 +68,11 @@ set(Bar(2),'FaceColor',[0.4660 0.6740 0.1880]) ;
 box on
 ylabel('Testing Set Samples')
 xlabel('ISCO-08 Classification Results')
-xticklabels({'WASDMC','FTree','FKNN','EBT','NNN'})
+row1 = {'WASD','WASD','FTree','FKNN','EBT','NNN'};
+row2 = {'MC','MC-PAF','','','',''};
+labelArray = [row1; row2]; 
+tickLabels = strtrim(sprintf('%s\\newline%s\n', labelArray{:}));
+ax = gca(); 
+ax.XTick = 1:6; 
+ax.XTickLabel = tickLabels; 
 legend('Correct Classifications','Incorrect Classifications')

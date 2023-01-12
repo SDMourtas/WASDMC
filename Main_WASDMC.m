@@ -32,6 +32,9 @@ tic
 [W,Em,A,E]=WASDMC(Xtrain,Ytrain,Nmax);   % WASDMC optimal hidden-layer structure
 toc
 tic
+[W2,~,A2]=WASDMC_PAF(Xtrain,Ytrain,Nmax*10);  % WASDMC with different power activation function
+toc
+tic
 FTree_Model=FTree([Xtrain,Ytrain],col); % Fine Tree model 
 toc
 tic
@@ -47,6 +50,8 @@ toc
 %% Predict
 [WASDMC_Ytr_pr,WASDMC_docYtr_pr]=predictN(Xtrain,W,A,y_min,y_max,docYtrain);   % WASDMC: train data prediction
 [WASDMC_Yte_pr,WASDMC_docYte_pr]=predictN(Xtest,W,A,y_min,y_max,docYtrain);    % WASDMC: test data prediction
+[WASDMC_PAF_Ytr_pr,WASDMC_PAF_docYtr_pr]=predictN_PAF(Xtrain,W2,A2,y_min,y_max,docYtrain);   % WASDMC_PAF: train data prediction
+[WASDMC_PAF_Yte_pr,WASDMC_PAF_docYte_pr]=predictN_PAF(Xtest,W2,A2,y_min,y_max,docYtrain);    % WASDMC_PAF: test data prediction
 FTree_Ytr_pr = FTree_Model.predictFcn(Xtrain); % FTree: train data prediction
 FTree_docYtr_pr=docYtrain(FTree_Ytr_pr)';
 FTree_Yte_pr = FTree_Model.predictFcn(Xtest);  % FTree: train data prediction
@@ -68,6 +73,9 @@ NNN_docYt_pr=docYtrain(NNN_Yte_pr)';
 fprintf('WASDMC statistics: \n'); error_pred(WASDMC_Yte_pr,Ytest); 
 c_matrix= confusionmat(WASDMC_Yte_pr,Ytest); % confusion matrix
 WASDMC_Result=confusion.getValues(c_matrix); WASDMC_k=kappa(c_matrix);
+fprintf('WASDMC_PAF statistics: \n'); error_pred(WASDMC_PAF_Yte_pr,Ytest); 
+c_matrix= confusionmat(WASDMC_PAF_Yte_pr,Ytest); % confusion matrix
+WASDMC_PAF_Result=confusion.getValues(c_matrix); WASDMC_PAF_k=kappa(c_matrix);
 fprintf('FTree statistics: \n'); error_pred(FTree_Yte_pr,Ytest);
 c_matrix= confusionmat(FTree_Yte_pr,Ytest);  % confusion matrix
 FTree_Result=confusion.getValues(c_matrix); FTree_k=kappa(c_matrix);
@@ -83,6 +91,6 @@ NNN_Result=confusion.getValues(c_matrix); NNN_k=kappa(c_matrix);
 
 
 %% Figures
-Ytr_pr=[WASDMC_Ytr_pr,FTree_Ytr_pr,FKNN_Ytr_pr,EBT_Ytr_pr,NNN_Ytr_pr];
-Yte_pr=[WASDMC_Yte_pr,FTree_Yte_pr,FKNN_Yte_pr,EBT_Yte_pr,NNN_Yte_pr];
+Ytr_pr=[WASDMC_Ytr_pr,WASDMC_PAF_Ytr_pr,FTree_Ytr_pr,FKNN_Ytr_pr,EBT_Ytr_pr,NNN_Ytr_pr];
+Yte_pr=[WASDMC_Yte_pr,WASDMC_PAF_Yte_pr,FTree_Yte_pr,FKNN_Yte_pr,EBT_Yte_pr,NNN_Yte_pr];
 Problem_figures(Ytr_pr,Ytrain,Yte_pr,Ytest,E,Em,A)
