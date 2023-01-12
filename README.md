@@ -14,8 +14,11 @@ Also, the kit includes the following two datasets:
 *	preprocessText.m: function for preprocessing data
 *	problem_figures.m: figures illustrating the problem's findings
 *	WASDMC.m: function for finding the optimal number of hidden-layer neurons, along with the optimal weights of the neural network
+*	WASDMC_PAF.m: function for finding the optimal number of hidden-layer neurons, along with the optimal weights of the neural network (includes alternative activation function)
 *	Zmatrix.m: function for calculating the matrix Z
+*	Zmatrix_PAF.m: function for calculating the matrix Z (includes alternative activation function)
 *	predictN.m: function for predicting
+*	predictN_PAF.m: function for predicting (includes alternative activation function)
 *	error_pred.m: function for calculating the mean absolute error (MAE) of the prediction
 *	FTree.mat: MATLAB's fine Tree model 
 *	FKNN.mat: MATLAB's fine KNN model 
