@@ -2,7 +2,7 @@
 Implementation of a 3-layer feed-forward neural network model for multiclass classification that was trained using a weights-and-structure-determination for multiclass classification (WASDMC) algorithm.\
 The purpose of this package is to classify occupations based on the International Standard Classification of Occupations (ISCO) through a WASDMC-based neural network.\
 The main articles used are the followings:
-*	D. Lagios, S.D. Mourtas, P. Zervas and G. Tzimas, "A Weights Direct Determination Neural Network for International Standard Classification of Occupations," (submitted)
+*	D. Lagios, S.D. Mourtas, P. Zervas and G. Tzimas, "A Weights Direct Determination Neural Network for International Standard Classification of Occupations," Mathematics, 11(3), 629 (2023)
 
 Also, the kit includes the following two datasets:
 *	ILO-ISCO, taken from https://www.ilo.org/ilostat-files/ISCO/newdocs-08-2021/ISCO-08/ISCO-08\%20EN\%20Structure\%20and\%20definitions.xlsx
