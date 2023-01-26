@@ -13,7 +13,7 @@
 %   Main paper: D.Lagios, S.D.Mourtas, P.Zervas, G.Tzimas,          %
 %               "A Weights Direct Determination Neural Network for  %
 %               International Standard Classification of            %
-%               Occupations," (submitted)                           %
+%               Occupations," Mathematics, 11(3), 629 (2023)        %
 %                                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
